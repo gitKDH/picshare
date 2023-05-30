@@ -15,16 +15,19 @@ public class Post {
 
     private String content;
 
+    private String author;
+
     private String imageFilePath;
 
     public Post(){
 
     }
 
-    public Post(Long id, String title, String content, String imageFilePath) {
+    public Post(Long id, String title, String content, String author, String imageFilePath) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.author = author;
         this.imageFilePath = imageFilePath;
     }
 
@@ -50,6 +53,14 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getImageFilePath() {
