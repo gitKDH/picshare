@@ -1,7 +1,5 @@
  package com.example.picshare.service;
 
- import com.example.picshare.domain.User;
- import com.example.picshare.repository.UserRepository;
  import org.junit.jupiter.api.BeforeEach;
  import org.junit.jupiter.api.Test;
  import org.mockito.InjectMocks;
