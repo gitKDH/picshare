@@ -4,6 +4,8 @@ import com.example.picshare.domain.Post;
 import com.example.picshare.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -24,9 +26,12 @@ public class PostService {
         return postRepository.findById(id).orElse(null);
     }
 
-    public Post createPost(Post post) {
-        return postRepository.save(post);
+    @PostMapping
+    public String createPost(@ModelAttribute("post") Post post) {
+        postService.createPost(post);
+        return "redirect:/posts";
     }
+
 
     public Post updatePost(Post post) {
         return postRepository.save(post);

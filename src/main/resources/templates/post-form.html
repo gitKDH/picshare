@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Post</title>
+</head>
+<body>
+<h1>Create New Post</h1>
+
+<form th:action="@{/posts}" th:object="${post}" method="post">
+    <div>
+        <label>제목:</label>
+        <input type="text" th:field="*{title}" required>
+    </div>
+    <div>
+        <label>글쓴이:</label>
+        <input type="text" th:field="*{author}" required>
+    </div>
+    <div>
+        <label>내용:</label>
+        <textarea th:field="*{content}" required></textarea>
+    </div>
+    <div>
+        <label>이미지 주소:</label>
+        <input type="text" th:field="*{imageUrl}" required>
+    </div>
+    <button type="submit">작성</button>
+</form>
+
+<a href="/posts">게시글 목록으로 돌아가기</a>
+</body>
+</html>

@@ -15,14 +15,14 @@ public class User {
 
     private String password;
 
-    // Getters and Setters
+    public User(){
 
-    // Additional methods and annotations
+    }
 
-    public User() {
+    public User(Long id, String username, String password) {
         this.id = id;
-        this.password = password;
         this.username = username;
+        this.password = password;
     }
 
     public Long getId() {

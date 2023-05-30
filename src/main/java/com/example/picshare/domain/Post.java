@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +16,10 @@ public class Post {
     private String content;
 
     private String imageFilePath;
+
+    public Post(){
+
+    }
 
     public Post(Long id, String title, String content, String imageFilePath) {
         this.id = id;
@@ -57,6 +60,3 @@ public class Post {
         this.imageFilePath = imageFilePath;
     }
 }
-
-
-// Additional methods and annotations

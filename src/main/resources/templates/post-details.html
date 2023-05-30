@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Post Details</title>
+</head>
+<body>
+<h1>게시글 상세</h1>
+
+<h3>제목: <span th:text="${post.title}"></span></h3>
+<h4>글쓴이: <span th:text="${post.author}"></span></h4>
+<p>내용: <span th:text="${post.content}"></span></p>
+<p>이미지 주소: <span th:text="${post.imageUrl}"></span></p>
+
+<a href="/posts">게시글 목록으로 돌아가기</a>
+</body>
+</html>
