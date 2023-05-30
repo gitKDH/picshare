@@ -28,7 +28,7 @@ public class PostService {
 
     @PostMapping
     public String createPost(@ModelAttribute("post") Post post) {
-        postService.createPost(post);
+        postRepository.save(post);
         return "redirect:/posts";
     }
 

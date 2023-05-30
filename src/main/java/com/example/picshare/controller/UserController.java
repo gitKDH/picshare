@@ -35,8 +35,18 @@ public class UserController {
 
     @PostMapping
     public String createUser(@ModelAttribute("user") UserDto userDto) {
-        userService.createUser(userDto);
+        // UserDto를 User로 변환
+        User user = convertToUser(userDto);
+        userService.createUser(user);
         return "redirect:/users";
+    }
+
+    private User convertToUser(UserDto userDto) {
+        User user = new User();
+        user.setUsername(userDto.getUsername());
+        user.setPassword(userDto.getPassword());
+        // 필요한 다른 필드도 설정
+        return user;
     }
 
     @GetMapping("/new")
