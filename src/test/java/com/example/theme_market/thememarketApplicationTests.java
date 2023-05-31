@@ -1,10 +1,10 @@
-package com.example.picshare;
+package com.example.theme_market;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PicshareApplicationTests {
+class thememarketApplicationTests {
 
 	@Test
 	void contextLoads() {
