@@ -10,14 +10,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.persistence.*;
 
 @Entity
-@Table(name="member")
+@Table(name = "member")
 @ToString
 @Getter
 @Setter
 public class Member extends BaseEntity {
 
     @Id
-    @Column(name="member_id")
+    @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
