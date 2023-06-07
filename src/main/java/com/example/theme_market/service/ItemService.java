@@ -39,10 +39,10 @@ public class ItemService {
         itemRepository.save(item);
 
         //이미지 등록
-        for(int i = 0; i < itemImgFileList.size(); i++) {
+        for (int i = 0; i < itemImgFileList.size(); i++) {
             ItemImg itemImg = new ItemImg();
             itemImg.setItem(item);
-            if(i == 0) {
+            if (i == 0) {
                 itemImg.setRepImgYn("Y");
             } else {
                 itemImg.setRepImgYn("N");
@@ -80,12 +80,13 @@ public class ItemService {
         List<Long> itemImgIds = itemFormDto.getItemImgIds();
 
         //이미지 등록
-        for(int i = 0; i < itemImgIds.size(); i++) {
+        for (int i = 0; i < itemImgIds.size(); i++) {
             itemImgService.updateItemImg(itemImgIds.get(i), itemImgFileList.get(i));
         }
 
         return item.getId();
     }
+
     //상품 삭제
     public void deleteItem(Long itemId) {
         // delete all related item images
@@ -96,8 +97,6 @@ public class ItemService {
         // delete item
         itemRepository.deleteById(itemId);
     }
-
-
 
 
     @Transactional(readOnly = true)
