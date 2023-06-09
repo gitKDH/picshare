@@ -58,7 +58,7 @@
     <div class="content" style="margin-top:15px;">
         <div class="row">
             <th:block th:each="item, status : ${items.getContent()}">
-                <div class="col-md-2 margin">
+                <div class="col-lg-3 margin">
                     <div class="card">
                         <a th:href="'/item/' + ${item.id}" class="text-dark">
                             <img th:src="${item.imgUrl}" class="card-img-top" th:alt="${item.itemNm}"
@@ -103,5 +103,4 @@
         <!-- 페이징 처리 끝 -->
     </div>
 </div>
-
 </html>

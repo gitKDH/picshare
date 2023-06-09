@@ -60,6 +60,8 @@ public class ItemController {
         try {
             itemService.saveItem(itemFormDto, itemImgFileList);
         } catch (Exception e) {
+            e.printStackTrace(); // 에러 스택 트레이스를 콘솔에 출력합니다.
+            System.out.println("에러 메시지: " + e.getMessage()); // 예외 메시지를 출력합니다.
             model.addAttribute("errorMessage", "상품 등록 중 에러가 발생하였습니다.");
             return "item/itemForm";
         }
