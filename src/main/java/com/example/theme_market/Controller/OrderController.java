@@ -32,7 +32,7 @@ public class OrderController {
     public @ResponseBody ResponseEntity order(@RequestBody @Valid OrderDto orderDto,
                                               BindingResult bindingResult, Principal principal) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             List<FieldError> fieldErrors = bindingResult.getFieldErrors();
             for (FieldError fieldError : fieldErrors) {
@@ -47,7 +47,7 @@ public class OrderController {
 
         try {
             orderId = orderService.order(orderDto, username);
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
 
@@ -72,7 +72,7 @@ public class OrderController {
     @PostMapping("/order/{orderId}/cancel")
     public @ResponseBody ResponseEntity cancelOrder(@PathVariable("orderId") Long orderId, Principal principal) {
 
-        if(!orderService.validateOrder(orderId, principal.getName())) {
+        if (!orderService.validateOrder(orderId, principal.getName())) {
             return new ResponseEntity<String>("주문 취소 권한이 없습니다.", HttpStatus.FORBIDDEN);
         }
 

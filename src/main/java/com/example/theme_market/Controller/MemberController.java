@@ -40,7 +40,7 @@ public class MemberController {
     @PostMapping("/members/new")
     public String memberForm(@Valid MemberFormDto memberFormDto, BindingResult bindingResult, Model model) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "member/memberForm";
         }
 
@@ -59,6 +59,7 @@ public class MemberController {
     public String loginMember() {
         return "member/loginForm";
     }
+
     @GetMapping("/members/login/error")
     public String loginError(Model model) {
         model.addAttribute("loginErrorMsg", "아이디 또는 비밀번호를 확인해주세요");

@@ -1,7 +1,6 @@
 package com.example.theme_market.Controller;
 
 
-
 import com.example.theme_market.dto.ItemFormDto;
 import com.example.theme_market.dto.ItemSearchDto;
 import com.example.theme_market.entity.Item;
@@ -48,11 +47,11 @@ public class ItemController {
     public String itemNew(@Valid ItemFormDto itemFormDto, BindingResult bindingResult, Model model,
                           @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "item/itemForm";
         }
 
-        if(itemImgFileList.get(0).isEmpty() && itemFormDto.getId() == null) {
+        if (itemImgFileList.get(0).isEmpty() && itemFormDto.getId() == null) {
             model.addAttribute("errorMessage", "첫번째 상품 이미지는 필수 입력 값입니다.");
             return "item/itemForm";
         }
@@ -91,11 +90,11 @@ public class ItemController {
     public String itemUpdate(@Valid ItemFormDto itemFormDto, BindingResult bindingResult,
                              @RequestParam("itemImgFile") List<MultipartFile> itemImgFileList, Model model) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "item/itemForm";
         }
 
-        if(itemImgFileList.get(0).isEmpty() && itemFormDto.getId() == null) {
+        if (itemImgFileList.get(0).isEmpty() && itemFormDto.getId() == null) {
             model.addAttribute("errorMessage", "첫번째 상품 이미지는 필수 입력 값입니다.");
             return "item/itemForm";
         }
@@ -109,6 +108,7 @@ public class ItemController {
 
         return "redirect:/";
     }
+
     //상품삭제_POST
     @PostMapping("/admin/item/delete/{itemId}")
     public String deleteItem(@PathVariable("itemId") Long itemId) {
@@ -138,8 +138,6 @@ public class ItemController {
         model.addAttribute("itemFormDto", itemFormDto);
         return "item/itemDtl";
     }
-
-
 
 
 }
