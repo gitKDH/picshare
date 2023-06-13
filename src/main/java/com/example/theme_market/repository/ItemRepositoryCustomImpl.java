@@ -35,15 +35,15 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
     private BooleanExpression regDtsAfter(String searchDateType) {
         LocalDateTime dateTime = LocalDateTime.now();
 
-        if(StringUtils.equals("all", searchDateType) || searchDateType == null) {
+        if (StringUtils.equals("all", searchDateType) || searchDateType == null) {
             return null;
-        } else if(StringUtils.equals("1d", searchDateType)) {
+        } else if (StringUtils.equals("1d", searchDateType)) {
             dateTime = dateTime.minusDays(1);                   //하루 전
-        } else if(StringUtils.equals("1w", searchDateType)) {
+        } else if (StringUtils.equals("1w", searchDateType)) {
             dateTime = dateTime.minusWeeks(1);                  //일주일 전
-        } else if(StringUtils.equals("1m", searchDateType)) {
+        } else if (StringUtils.equals("1m", searchDateType)) {
             dateTime = dateTime.minusMonths(1);                 //한달 전
-        } else if(StringUtils.equals("6m", searchDateType)) {
+        } else if (StringUtils.equals("6m", searchDateType)) {
             dateTime = dateTime.minusMonths(6);                 //6개월 전
         }
 
@@ -52,9 +52,9 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
 
     private BooleanExpression searchByLike(String searchBy, String searchQuery) {
 
-        if(StringUtils.equals("itemNm", searchBy)) {
+        if (StringUtils.equals("itemNm", searchBy)) {
             return QItem.item.itemNm.like("%" + searchQuery + "%");
-        } else if(StringUtils.equals("createdBy", searchBy)) {
+        } else if (StringUtils.equals("createdBy", searchBy)) {
             return QItem.item.createdBy.like("%" + searchQuery + "%");
         }
 

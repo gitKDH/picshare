@@ -88,7 +88,7 @@ public class OrderService {
                 .orElseThrow(EntityNotFoundException::new);
         Member savedMember = order.getMember();
 
-        if(!StringUtils.equals(curMember.getUsername(), savedMember.getUsername())) {
+        if (!StringUtils.equals(curMember.getUsername(), savedMember.getUsername())) {
             return false;
         }
 

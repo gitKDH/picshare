@@ -11,8 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="orders")
-@Getter @Setter
+@Table(name = "orders")
+@Getter
+@Setter
 public class Order extends BaseEntity {
 
     @Id
@@ -40,7 +41,7 @@ public class Order extends BaseEntity {
     public static Order createOrder(Member member, List<OrderItem> orderItemList) {
         Order order = new Order();
         order.setMember(member);
-        for(OrderItem orderItem : orderItemList) {
+        for (OrderItem orderItem : orderItemList) {
             order.addOrderItem(orderItem);
         }
         order.setOrderStatus(OrderStatus.ORDER);
@@ -50,7 +51,7 @@ public class Order extends BaseEntity {
 
     public int getTotalPrice() {
         int totalPrice = 0;
-        for(OrderItem orderItem : orderItems) {
+        for (OrderItem orderItem : orderItems) {
             totalPrice += orderItem.getTotalPrice();
         }
         return totalPrice;
@@ -59,7 +60,7 @@ public class Order extends BaseEntity {
     public void cancelOrder() {
         this.orderStatus = OrderStatus.CANCEL;
 
-        for(OrderItem orderItem : orderItems) {
+        for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
     }

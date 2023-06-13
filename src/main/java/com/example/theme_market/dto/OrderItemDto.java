@@ -4,7 +4,8 @@ import com.example.theme_market.entity.OrderItem;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class OrderItemDto { //주문 상품 정보를 담을 DTO
 
     public OrderItemDto(OrderItem orderItem, String imgUrl) {

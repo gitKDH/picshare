@@ -7,12 +7,13 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name="item_img")
-@Getter @Setter
+@Table(name = "item_img")
+@Getter
+@Setter
 public class ItemImg extends BaseEntity {
 
     @Id
-    @Column(name="item_img_id")
+    @Column(name = "item_img_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

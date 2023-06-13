@@ -1,7 +1,6 @@
 package com.example.theme_market.dto;
 
 
-
 import com.example.theme_market.constant.ItemSellStatus;
 import com.example.theme_market.entity.Item;
 import lombok.Getter;
@@ -13,7 +12,8 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 public class ItemFormDto {
 
     private Long id;

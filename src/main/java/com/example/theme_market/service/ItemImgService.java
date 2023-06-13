@@ -22,11 +22,10 @@ public class ItemImgService {
     @Value("${itemImgLocation}")
     private String itemImgLocation;
 
-    private  final ItemRepository itemRepository;
+    private final ItemRepository itemRepository;
     private final ItemImgRepository itemImgRepository;
 
     private final FileService fileService;
-
 
 
     public void saveItemImg(ItemImg itemImg, MultipartFile itemImgFile) throws Exception {
@@ -35,7 +34,7 @@ public class ItemImgService {
         String imgUrl = "";
 
         //파일 업로드
-        if(!StringUtils.isEmpty(oriImgName)) {
+        if (!StringUtils.isEmpty(oriImgName)) {
             imgName = fileService.uploadFile(itemImgLocation, oriImgName, itemImgFile.getBytes());
             imgUrl = "/img/images/item/" + imgName;
         }
@@ -46,13 +45,13 @@ public class ItemImgService {
     }
 
     public void updateItemImg(Long itemImgId, MultipartFile itemImgFile) throws Exception {
-        if(!itemImgFile.isEmpty()) {
+        if (!itemImgFile.isEmpty()) {
             ItemImg savedItemImg = itemImgRepository.findById(itemImgId)
                     .orElseThrow(EntityNotFoundException::new);
 
             //기존 이미지 파일 삭제
-            if(!StringUtils.isEmpty(savedItemImg.getImgName())) {
-                fileService.deleteFile(itemImgLocation+"/"+savedItemImg.getImgName());
+            if (!StringUtils.isEmpty(savedItemImg.getImgName())) {
+                fileService.deleteFile(itemImgLocation + "/" + savedItemImg.getImgName());
             }
 
             String oriImgName = itemImgFile.getOriginalFilename();
